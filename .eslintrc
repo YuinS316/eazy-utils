@@ -1,0 +1,8 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "semi": 0,
+    "@typescript-eslint/semi": ["error", "always"],
+    "import/export": 0
+  }
+}
