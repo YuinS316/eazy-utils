@@ -1,6 +1,6 @@
 type Func = (...args: any[]) => any;
 
-export default function compose(...fns: Func[]): Func {
+export function compose(...fns: Func[]): Func {
   if (!fns.length)
     return arg => arg;
 

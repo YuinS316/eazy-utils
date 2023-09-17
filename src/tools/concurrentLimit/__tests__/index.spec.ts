@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import concurrentLimit from '../index';
+import { concurrentLimit } from '../index';
 
 describe('concurrent limit', () => {
   beforeEach(() => {

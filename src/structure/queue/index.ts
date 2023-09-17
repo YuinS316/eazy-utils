@@ -14,7 +14,7 @@ class Node<T = unknown> {
 /**
  *  链表实现的队列
  */
-export default class Queue<T = unknown> {
+export class Queue<T = unknown> {
   private head: NodeLike<T>;
   private tail: NodeLike<T>;
   private _size: number;

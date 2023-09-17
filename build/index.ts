@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
 import { join } from 'node:path';
 import process from 'node:process';
-import * as fs from 'node:fs';
-import * as esbuild from 'esbuild';
+import { build } from 'esbuild';
 
 /**
  * calculate cb cost time
@@ -25,23 +24,31 @@ async function calcCostTime(name: string, cb: () => void) {
 /**
  * begin bundle
  */
-async function build() {
-  await esbuild.build({
-    entryPoints: [
-      join(process.cwd(), 'src/index.ts'),
-    ],
-    bundle: true,
-    minify: true,
-    sourcemap: true,
-    splitting: true,
-    outdir: 'lib',
-    format: 'esm',
-    target: ['esnext'],
-  }).catch(() => process.exit(1));
+async function bundle() {
+  const entry = join(process.cwd(), 'src/tools/index.ts');
+  const buildTsConfig = join(process.cwd(), 'tsconfig.build.json');
+  try {
+    await build({
+      entryPoints: [
+        entry,
+      ],
+      outdir: 'lib',
+      bundle: true,
+      // minify: true,
+      sourcemap: true,
+      splitting: true,
+      format: 'esm',
+      target: ['esnext'],
+      tsconfig: buildTsConfig,
+    });
+  }
+  catch (e) {
+    process.exit(1);
+  }
 }
 
 async function main() {
-  await calcCostTime('Build', build);
+  await calcCostTime('Build', bundle);
 }
 
 main();

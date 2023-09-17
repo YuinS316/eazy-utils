@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, test } from 'vitest';
-import Queue from '../index';
+import { Queue } from '../index';
 
 describe('queue', () => {
   let queue: Queue<number>;

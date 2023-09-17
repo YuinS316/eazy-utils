@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import compose from '../index';
+import { compose } from '../index';
 
 describe('compose', () => {
   it('no input function should return a function that will return arg', () => {

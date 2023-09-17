@@ -1,4 +1,4 @@
-import Queue from '@/structure/queue';
+import { Queue } from '@/structure/queue';
 
 type FuncLike = (...args: any[]) => void;
 
@@ -6,7 +6,7 @@ type FuncLike = (...args: any[]) => void;
  * 控制最大并发数
  * @param limit 最大并发数
  */
-export default function concurrentLimit(limit: number) {
+export function concurrentLimit(limit: number) {
   const queue = new Queue<FuncLike>();
 
   //  正在进行的并发任务数量

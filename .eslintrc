@@ -3,6 +3,8 @@
   "rules": {
     "semi": 0,
     "@typescript-eslint/semi": ["error", "always"],
-    "import/export": 0
+    "import/export": 0,
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/no-this-alias": 0
   }
 }

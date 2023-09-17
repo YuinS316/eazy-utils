@@ -11,7 +11,7 @@
   "scripts": {
     "test": "vitest",
     "dev": "nodemon ",
-    "ts-types": " tsc --emitDeclarationOnly --outDir lib",
+    "ts-types": " tsc --project tsconfig.build.json --emitDeclarationOnly --outDir lib",
     "build": "rimraf lib && node --loader=ts-node/esm ./build/index.ts && npm run ts-types",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
