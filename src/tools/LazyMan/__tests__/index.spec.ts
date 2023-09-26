@@ -41,7 +41,7 @@ describe('LazyMan', () => {
     expect(resultLog).toEqual(['This is Hank', 'eat dinner']);
   });
 
-  it('should support sleep method', () => {
+  it('should support sleepFirst method', () => {
     const p = new LazyMan('Hank').eat('dinner').sleepFirst(1000);
     expect(resultLog).toEqual(['This is Hank']);
     vi.advanceTimersToNextTimer();
