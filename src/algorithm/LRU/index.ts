@@ -28,6 +28,8 @@ export class LRUCache {
       this.map.set(key, value);
     }
 
-    return this.map.get(key);
+    const value = this.map.get(key);
+
+    return value ?? -1;
   }
 }
