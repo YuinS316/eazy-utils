@@ -1,15 +1,5 @@
-type NodeLike<T = unknown> = Node<T> | null;
-
-class Node<T = unknown> {
-  public next: NodeLike<T>;
-
-  public value: T;
-
-  constructor(value: T) {
-    this.value = value;
-    this.next = null;
-  }
-}
+import { Node } from '../node';
+import type { NodeLike } from '../node';
 
 /**
  *  链表实现的队列
@@ -26,6 +16,10 @@ export class Queue<T = unknown> {
   constructor() {
     this.head = this.tail = null;
     this._size = 0;
+  }
+
+  getHead() {
+    return this.head?.value;
   }
 
   clear() {
