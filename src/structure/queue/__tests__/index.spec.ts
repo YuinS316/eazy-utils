@@ -44,12 +44,12 @@ describe('queue', () => {
       expect(item).toBe(i++);
   });
 
-  it('should getHeade return head value', () => {
-    expect(queue.getHead()).toBe(undefined);
+  it('should can get head value', () => {
+    expect(queue.head).toBe(undefined);
     queue.enqueue(1);
-    expect(queue.getHead()).toBe(1);
+    expect(queue.head).toBe(1);
 
     queue.enqueue(2);
-    expect(queue.getHead()).toBe(1);
+    expect(queue.head).toBe(1);
   });
 });

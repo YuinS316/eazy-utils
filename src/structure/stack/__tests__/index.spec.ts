@@ -28,14 +28,14 @@ describe('stack', () => {
     expect(stack.size).toBe(0);
   });
 
-  it('should getHead will return which is the lastest pushed', () => {
-    expect(stack.getHead()).toBe(undefined);
+  it('should head will return which is the lastest pushed', () => {
+    expect(stack.head).toBe(undefined);
 
     stack.push(1);
-    expect(stack.getHead()).toBe(1);
+    expect(stack.head).toBe(1);
 
     stack.push(2);
-    expect(stack.getHead()).toBe(2);
+    expect(stack.head).toBe(2);
   });
 
   it('should iterator work', () => {
