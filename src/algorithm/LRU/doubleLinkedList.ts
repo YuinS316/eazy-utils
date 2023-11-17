@@ -1,6 +1,6 @@
-class Node {
-  public prev: Node | null;
-  public next: Node | null;
+export class DoubleLinkedNode {
+  public prev: DoubleLinkedNode | null;
+  public next: DoubleLinkedNode | null;
 
   constructor(public key: number, public value: number) {
     this.prev = null;
@@ -9,11 +9,11 @@ class Node {
 }
 
 export class LRU {
-  public dummy: Node;
-  public keyToMap: Map<number, Node>;
+  public dummy: DoubleLinkedNode;
+  public keyToMap: Map<number, DoubleLinkedNode>;
 
   constructor(public capacity: number) {
-    this.dummy = new Node(-1, -1);
+    this.dummy = new DoubleLinkedNode(-1, -1);
     this.dummy.prev = this.dummy;
     this.dummy.next = this.dummy;
     this.keyToMap = new Map();
@@ -45,7 +45,7 @@ export class LRU {
     }
 
     // const node = new Node(key, value);
-    node = new Node(key, value);
+    node = new DoubleLinkedNode(key, value);
     this.keyToMap.set(key, node);
     this.putFront(node);
 
@@ -62,13 +62,13 @@ export class LRU {
   }
 
   //  将节点从链表中移除
-  remove(node: Node) {
+  remove(node: DoubleLinkedNode) {
     node.prev!.next = node.next;
     node.next!.prev = node.prev;
   }
 
   //  将节点塞到链表头部(哑结点之后)
-  putFront(node: Node) {
+  putFront(node: DoubleLinkedNode) {
     node.next = this.dummy.next;
     node.prev = this.dummy;
 

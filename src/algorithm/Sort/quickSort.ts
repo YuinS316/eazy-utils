@@ -2,8 +2,8 @@
  * 快速排序
  *
  * @version v1 返回新数组
- * @param arr
- * @returns 排序后的数组
+ * @param {number[]} arr 需要排序的数组
+ * @returns {number[]} 排序后的新数组
  */
 
 export function quickSortV1(arr: number[]): number[] {
@@ -24,7 +24,8 @@ export function quickSortV1(arr: number[]): number[] {
  * 快速排序
  *
  * @version v2 原地排序版本
- * @param arr
+ * @param {number[]} arr 需要排序的数组
+ * @returns {number[]} 原地排序后的数组
  */
 export function quickSortV2(arr: number[]) {
   return quickSortHelper(arr, 0, arr.length - 1);

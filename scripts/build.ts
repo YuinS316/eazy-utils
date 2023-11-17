@@ -1,32 +1,17 @@
-/* eslint-disable no-console */
 import { join } from 'node:path';
 import process from 'node:process';
 import { build } from 'esbuild';
+import config from './config';
+import { calcCostTime } from './utils';
 
-/**
- * calculate cb cost time
- *
- * @param name
- * @param cb
- */
-async function calcCostTime(name: string, cb: () => void) {
-  const startTime = new Date().getTime();
-
-  await cb();
-
-  const endTime = new Date().getTime();
-
-  const diffTime = endTime - startTime;
-  console.log(`============ ${name} Finished ==============`);
-  console.log(`Cost ${diffTime} ms`);
-}
+const { buildEntryPath, buildTsconfigPath } = config;
 
 /**
  * begin bundle
  */
 async function bundle() {
-  const entry = join(process.cwd(), 'src/tools/index.ts');
-  const buildTsConfig = join(process.cwd(), 'tsconfig.build.json');
+  const entry = buildEntryPath;
+  const buildTsConfig = buildTsconfigPath;
   try {
     await build({
       entryPoints: [

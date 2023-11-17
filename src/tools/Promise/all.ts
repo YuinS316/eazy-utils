@@ -1,10 +1,4 @@
 interface PromiseConstructor {
-  /**
-   * Creates a Promise that is resolved with an array of results when all of the provided Promises
-   * resolve, or rejected when any Promise is rejected.
-   * @param values An array of Promises.
-   * @returns A new Promise.
-   */
   mAll<T extends readonly unknown[] | []>(values: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]> }>
 }
 

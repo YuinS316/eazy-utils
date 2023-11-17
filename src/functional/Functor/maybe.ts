@@ -14,7 +14,7 @@ function isEmpty(x: unknown): x is EmptyType {
  *
  * @description Maybe Functor 在 Identity Functor 的基础上，增加了对空数据的校验。
  * @param x
- * @returns
+ * @returns {MaybeFunctor} 返回Maybe Functor
  */
 export function Maybe<T>(x: T): MaybeFunctor<T> {
   return {

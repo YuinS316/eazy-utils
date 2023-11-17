@@ -11,14 +11,19 @@
   "scripts": {
     "test": "vitest",
     "dev": "nodemon ",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "ts-types": " tsc --project tsconfig.build.json --emitDeclarationOnly --outDir lib",
-    "build": "rimraf lib && node --loader=ts-node/esm ./build/index.ts && npm run ts-types",
+    "build": "rimraf lib && node --loader=ts-node/esm ./scripts/build.ts && npm run ts-types",
+    "jsdoc2md": "node --loader=ts-node/esm ./scripts/jsdocToMd/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@types/node": "14",
     "esbuild": "0.19.2",
+    "i": "^0.3.7",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
@@ -27,10 +32,22 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.3",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jsdoc-to-markdown": "^7.0.6",
+    "await-to-js": "^3.0.0",
     "eslint": "^8.49.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.1.1",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^8.0.0",
     "lint-staged": "^14.0.1",
+    "ora": "^5.4.1",
     "simple-git-hooks": "^2.9.0",
-    "tsconfig-paths": "^4.2.0"
+    "tsconfig-paths": "^4.2.0",
+    "vitepress": "1.0.0-rc.26"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

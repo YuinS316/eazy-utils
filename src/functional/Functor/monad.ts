@@ -10,7 +10,7 @@ export interface MonadFunctor<T> extends IndentityFunctory<T> {
  *
  * @description Monad提供了flatMap方法，用于解决嵌套盒子的问题
  * @param x
- * @returns
+ * @returns {MonadFunctor} 返回 Monad Functor
  */
 export function Monad<T>(x: T): MonadFunctor<T> {
   return {

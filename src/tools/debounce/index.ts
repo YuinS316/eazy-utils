@@ -4,7 +4,7 @@
  * @param fn 执行的函数
  * @param timeout 延迟执行的时间(ms)
  * @param immediate 是否立即执行
- * @returns
+ * @returns {Function} 包装后的函数
  */
 export function debounce(fn: Function, timeout: number, immediate = false): Function {
   let timer: NodeJS.Timeout | null = null;
