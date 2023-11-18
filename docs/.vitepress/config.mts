@@ -17,8 +17,8 @@ export default defineConfig({
 
     sidebar: sideList,
     docFooter: {
-      prev: '上一页',
-      next: '下一页',
+      prev: false,
+      next: false,
     },
   },
 });

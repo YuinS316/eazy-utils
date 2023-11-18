@@ -10,12 +10,12 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "vitest",
-    "dev": "nodemon ",
+    "dev": "node --loader=ts-node/esm ./scripts/jsdocToMd/index.ts && npm run docs:dev & node --loader=ts-node/esm ./scripts/watch.ts",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "ts-types": " tsc --project tsconfig.build.json --emitDeclarationOnly --outDir lib",
-    "build": "rimraf lib && node --loader=ts-node/esm ./scripts/build.ts && npm run ts-types",
+    "build": "node --loader=ts-node/esm ./scripts/build.ts && npm run ts-types",
     "jsdoc2md": "node --loader=ts-node/esm ./scripts/jsdocToMd/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -23,8 +23,6 @@
   "dependencies": {
     "@types/node": "14",
     "esbuild": "0.19.2",
-    "i": "^0.3.7",
-    "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.9",

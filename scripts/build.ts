@@ -1,10 +1,9 @@
-import { join } from 'node:path';
 import process from 'node:process';
 import { build } from 'esbuild';
 import config from './config';
-import { calcCostTime } from './utils';
+import { calcCostTime, deleteDirectory } from './utils';
 
-const { buildEntryPath, buildTsconfigPath } = config;
+const { buildEntryPath, buildTsconfigPath, buildOutputPath } = config;
 
 /**
  * begin bundle
@@ -33,6 +32,7 @@ async function bundle() {
 }
 
 async function main() {
+  await calcCostTime('Delete lib', () => deleteDirectory(buildOutputPath));
   await calcCostTime('Build', bundle);
 }
 

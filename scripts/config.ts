@@ -5,6 +5,8 @@ const MD_DIR = 'doc';
 
 export default {
   MD_DIR,
+  //  打包的输出目录
+  buildOutputPath: join(process.cwd(), 'lib'),
   //  打包的入口路径
   buildEntryPath: join(process.cwd(), 'src/index.ts'),
   //  打包对应的tsconfig路径

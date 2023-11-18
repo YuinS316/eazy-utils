@@ -3,7 +3,7 @@ import fg, { async } from 'fast-glob';
 import jsdoc2md from 'jsdoc-to-markdown';
 import to from 'await-to-js';
 import config from '../config';
-import { calcCostTime } from '../utils';
+import { calcCostTime, deleteDirectory } from '../utils';
 
 const { mdTemplatePath, mdDirPath, srcDirPath, jsdocConfigPath } = config;
 
@@ -73,11 +73,6 @@ async function generateMd({ root, output, fileName }: MarkdownDir) {
     if (mdStr !== '')
       await fs.outputFile(`${output}/${fileName}.md`, mdStr);
   }
-}
-
-//  删除指定目录
-async function deleteDirectory(dirPath: string) {
-  await fs.remove(dirPath);
 }
 
 main();

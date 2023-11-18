@@ -1,3 +1,4 @@
+import fs from 'fs-extra';
 import ora from 'ora';
 import to from 'await-to-js';
 import fg from 'fast-glob';
@@ -41,6 +42,11 @@ export async function calcCostTime<T = any>(name: string, cb: () => Promise<T>):
   }
 
   return result;
+}
+
+//  删除指定目录
+export async function deleteDirectory(dirPath: string) {
+  await fs.remove(dirPath);
 }
 
 interface SidebarItem {
