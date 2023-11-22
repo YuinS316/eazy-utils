@@ -28,7 +28,9 @@ function isEmpty(x: unknown): x is EmptyType {
 export function Maybe<T>(x: T): MaybeFunctor<T> {
   return {
     map<U>(f: (value: T) => U): MaybeFunctor<U> {
-      return isEmpty(x) ? Maybe<null>(null) as MaybeFunctor<U> : Maybe<U>(f(x));
+      return isEmpty(x)
+        ? Maybe<null>(null) as MaybeFunctor<U>
+        : Maybe<U>(f(x));
     },
     valueOf(): T {
       return x;
