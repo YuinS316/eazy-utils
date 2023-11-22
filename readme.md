@@ -19,7 +19,9 @@
 #### pattern (设计模式)
 - [x] singleton 单例
 - [x] eventEmitter 发布订阅
-- structure (数据结构)
+
+
+#### structure (数据结构)
 - [x] linkedList 链表
 - [x] stack 栈
 - [x] queue 队列
