@@ -5,8 +5,13 @@ export function produce<T extends object>(baseState: T, recipe: Recipe<T>) {
 
   const draft = new Proxy(baseState, {
     set(target, key, value) {
-      if (!copyState)
-        copyState = { ...target } as T;
+      if (!copyState) {
+        if (Array.isArray(target))
+          copyState = [...target] as T;
+
+        else
+          copyState = { ...target } as T;
+      }
 
       (copyState as any)[key] = value;
       return true;
@@ -15,5 +20,5 @@ export function produce<T extends object>(baseState: T, recipe: Recipe<T>) {
 
   recipe(draft);
 
-  return Object.freeze(copyState ?? baseState);
+  return (copyState ?? baseState);
 };

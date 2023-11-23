@@ -1,5 +1,22 @@
 import './Function/apply';
 import './Function/call';
 import './Function/bind';
+import './Array/flat';
+import './Array/foreach';
+import './Array/map';
+import './Array/reduce';
+import './Array/uniq';
+import './Promise/all';
+import './Promise/allSettled';
+import './Promise/race';
+import './Promise/reject';
+import './Promise/resolve';
 
 export * from './compose/index';
+export * from './concurrentLimit/index';
+export * from './curry/index';
+export * from './debounce/index';
+export * from './instanceof/index';
+export * from './new/index';
+export * from './pipe/index';
+export * from './throttle/index';

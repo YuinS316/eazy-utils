@@ -29,4 +29,14 @@ describe('simple immer', () => {
 
     expect(nextState).toBe(baseState);
   });
+
+  it('should work for array', () => {
+    const baseState = [1];
+
+    const nextState = produce(baseState, (draft) => {
+      draft.push(2);
+    });
+
+    expect(nextState).toEqual([1, 2]);
+  });
 });
