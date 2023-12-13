@@ -1,20 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { inOrderTraversal, postOrderTraversal, preOrderTraversal, preOrderTraversalInStack } from '../traversal';
-import { TreeNode } from '@/structure/node';
+import { createSampleTree } from './helper';
 
 describe('Tree Traversal', () => {
-  const createSampleTree = (): TreeNode<number> => {
-    /*
-    Example tree:
-            1
-           / \
-          2   3
-         / \
-        4   5
-    */
-    return new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
-  };
-
   it('should perform pre-order traversal', () => {
     const root = createSampleTree();
     const result = preOrderTraversal(root);
