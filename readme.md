@@ -25,6 +25,7 @@
 - [x] linkedList 链表
 - [x] stack 栈
 - [x] queue 队列
+- [x] heap 堆
 
 
 #### tools (工具函数)
