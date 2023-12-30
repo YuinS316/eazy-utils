@@ -44,7 +44,7 @@ export class LRU {
    * 获取指定键对应的节点，并将其更新为最新的节点。
    *
    * @param {number} key - 要查找的键。
-   * @returns 返回查找到的节点，如果不存在则返回 null。
+   * @returns {DoubleLinkedNode | undefined} 返回查找到的节点，如果不存在则返回 null。
    * @example
    getNode(key: number) {
     if (!this.keyToMap.has(key))
@@ -74,7 +74,7 @@ export class LRU {
    * 获取指定键对应的值。
    *
    * @param {number} key - 要查找的键。
-   * @returns 返回查找到的值，如果不存在则返回 -1。
+   * @returns {number} 返回查找到的值，如果不存在则返回 -1。
    * @example
    get(key: number) {
     const node = this.getNode(key);
@@ -91,6 +91,7 @@ export class LRU {
    *
    * @param {number} key - 要插入的键。
    * @param {number} value - 要插入的值。
+   * @returns {void}
    * @example
    put(key: number, value: number) {
     let node = this.getNode(key);
@@ -135,7 +136,7 @@ export class LRU {
   /**
    * 获取链表中最老的节点。
    *
-   * @returns 返回最老的节点，如果链表为空则返回 null。
+   * @returns {DoubleLinkedNode | null} 返回最老的节点，如果链表为空则返回 null。
    * @example
    getOldestNode() {
     return this.dummy.prev;
@@ -149,6 +150,7 @@ export class LRU {
    * 从链表中移除指定节点。
    *
    * @param {DoubleLinkedNode} node - 要移除的节点。
+   * @returns {void}
    * @example
    remove(node: DoubleLinkedNode) {
     node.prev!.next = node.next;
@@ -164,6 +166,7 @@ export class LRU {
    * 将节点插入链表头部（哑结点之后）。
    *
    * @param {DoubleLinkedNode} node - 要插入的节点。
+   * @returns {void}
    * @example
    putFront(node: DoubleLinkedNode) {
     node.next = this.dummy.next;

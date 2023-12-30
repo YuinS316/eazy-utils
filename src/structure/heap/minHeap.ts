@@ -1,10 +1,6 @@
 export class MinHeap {
   public heap: number[] = [];
 
-  /**
-   * 最小堆
-   * @param heap
-   */
   constructor(
 
   ) {

@@ -17,6 +17,23 @@ function isEmpty(x: unknown): x is EmptyType {
  * @returns 返回Maybe Functor
  * @example
  *
+ * // 实现
+ * function Maybe<T>(x: T): MaybeFunctor<T> {
+  return {
+    map<U>(f: (value: T) => U): MaybeFunctor<U> {
+      return isEmpty(x)
+        ? Maybe<null>(null) as MaybeFunctor<U>
+        : Maybe<U>(f(x));
+    },
+    valueOf(): T {
+      return x;
+    },
+    inspect() {
+      return `Maybe {${x}}`;
+    },
+  };
+}
+ *
  * // 使用
  * const newBox = Maybe(10)
       .map(add4)
