@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LRUCache } from '../index';
+import { LRUCache } from '../violentMap';
 import { LRU } from '../doubleLinkedList';
 
 describe('LRU Cache', () => {

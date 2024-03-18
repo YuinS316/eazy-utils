@@ -14,8 +14,13 @@ export default defineConfig({
   base: '/',
   themeConfig: {
     // theme-level options
-
     sidebar: sideList,
+    nav: [
+      { text: '算法', link: '/doc/algorithm/Sort/quickSort', activeMatch: '/doc/algorithm/' },
+      { text: '工具函数', link: '/doc/tools/concurrentLimit/', activeMatch: '/doc/tools/' },
+      { text: '数据结构', link: '/doc/structure/queue/index', activeMatch: '/doc/structure/' },
+      { text: '设计模式', link: '/doc/pattern/eventEmitter/index', activeMatch: '/doc/pattern/' },
+    ],
     docFooter: {
       prev: false,
       next: false,

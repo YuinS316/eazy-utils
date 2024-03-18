@@ -10,13 +10,11 @@ import { DoubleLinkedNode } from './doubledNode';
  */
 export class LRU {
   /**
-   * 哑结点，作为双向链表的头结点。
-   * @type {DoubleLinkedNode}
+   * 哑结点，作为双向链表的头结点
    */
   public dummy: DoubleLinkedNode;
   /**
    * 存储键到节点的映射，用于快速查找节点。
-   * @type {Map<number, DoubleLinkedNode>}
    */
   public keyToMap: Map<number, DoubleLinkedNode>;
 
